@@ -4,10 +4,10 @@
 ### ignore application.yml ###
 src/main/resources/application-dev.yml
 src/main/resources/application-local.yml
-src/main/resources/firebase/firebase_service_key.json
+src/main/resources/firebase-key.json
 .gradle/*
 build/*
-
+build.sh
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
