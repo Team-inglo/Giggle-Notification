@@ -87,7 +87,7 @@ jobs:
           key: ${{ secrets.DEV_SSH_KEY }}
           port: ${{ secrets.DEV_SSH_PORT }}
           script: |
-            docker stop api-server
-            docker rm api-server
+            docker stop notification-server
+            docker rm notification-server
             docker image rm ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}
-            docker run -d -p 8080:8080 --name api-server --network ${{secrets.DOCKER_NETWORKNAME}} -v /home/ubuntu/template:/app/template ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}
+            docker run -d -p 8081:8080 --name notification-server --network ${{secrets.DOCKER_NETWORKNAME}} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}
