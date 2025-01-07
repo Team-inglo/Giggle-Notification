@@ -22,6 +22,9 @@ public class RestClientUtil {
                 .body(jsonObject)
                 .retrieve()
                 .onStatus(HttpStatusCode::is4xxClientError, (request, response) -> {
+                    log.error(response.getStatusText());
+                    log.error(response.toString());
+                    log.error(response.getBody().toString());
                     throw new CommonException(ErrorCode.INVALID_ARGUMENT);
                 })
                 .onStatus(HttpStatusCode::is5xxServerError, (request, response) -> {
